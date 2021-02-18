@@ -1,0 +1,11 @@
+.nav-bar{
+    border-style: ridge;
+    background-color: white;
+    border: none;
+    border-left : 6px solid lightblue;
+    
+}
+
+.nav-bar-text{
+    color: black;
+}

@@ -4,6 +4,7 @@ import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
 
+
 import './Contact.css';
 
 export default class Contact extends Component {

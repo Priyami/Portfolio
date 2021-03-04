@@ -28,6 +28,10 @@ module.exports = {
                 
             },
             {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'assets/resource',
+              },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [

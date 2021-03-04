@@ -17,13 +17,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node server.js",
     "start": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "license": "MIT",
   "browserslist": "> 1%,last 2 versions",
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@babel/node": "^7.13.0",
     "@babel/plugin-transform-runtime": "^7.12.17",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
@@ -31,6 +35,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^4.3.0",
     "file-loader": "^5.0.2",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
     "postcss": "^8.2.6",
     "postcss-loader": "^3.0.0",
@@ -43,12 +48,20 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
     "bootstrap-loader": "^3.0.4",
+    "concurrently": "^6.0.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
     "formik": "^2.2.6",
+    "http-proxy-middleware": "^1.0.6",
     "jquery": "^3.5.1",
     "mini-css-extract-plugin": "0.4.0",
     "node-sass": "5.0.0",
+    "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.7",
     "popper.js": "^1.16.1",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
@@ -64,7 +77,7 @@
     "sass-loader": "^10.0.5"
   },
   "bugs": {
-    "url": "https://github.com/priyami2010"
+    "url": "https://priyami.github.io/Portfolio/"
   },
-  "homepage": "https://github.com/priyami2010"
+  "homepage": "https://priyami.github.io/Portfolio/"
 }

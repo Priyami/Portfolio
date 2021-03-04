@@ -7,7 +7,6 @@ import Slider from './components/Slider';
 import Project from './components/Project';
 import Contact from './components/Contact';
 //import Timeline from './components/timeline'
-
 class Portfolio extends Component {
     render() {
         return (

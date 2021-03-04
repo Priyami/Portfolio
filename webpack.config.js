@@ -1,6 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -71,5 +72,10 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         })
+    ]
+    [
+        new CopyWebpackPlugin([
+            {from:'src/images', to:'images'}
+        ])
     ]
 };

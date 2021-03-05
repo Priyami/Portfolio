@@ -59,7 +59,7 @@
     "http-proxy-middleware": "^1.0.6",
     "jquery": "^3.5.1",
     "mini-css-extract-plugin": "0.4.0",
-    "node-sass": "5.0.0",
+    "node-sass": "^4.14.1",
     "nodemailer": "^6.4.18",
     "nodemon": "^2.0.7",
     "popper.js": "^1.16.1",
@@ -74,8 +74,8 @@
     "redux": "4.0.5",
     "regenerator-runtime": "^0.13.7",
     "resolve-url-loader": "3.1.2",
-    "sass-loader": "^10.0.5",
-    "webpack": "^4.0.0"
+    "sass-loader": "^7.3.1",
+    "webpack": "^4.42.0"
   },
   "bugs": {
     "url": "https://priyami.github.io/Portfolio/"

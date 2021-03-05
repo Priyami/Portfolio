@@ -73,7 +73,7 @@ module.exports = {
             inject: 'body'
         }),
         new CopyWebpackPlugin([
-            {from:'dist/images', to:'images'}
+            {from:'src/images', to: 'images'}
         ])
     
     ]

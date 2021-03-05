@@ -11,7 +11,7 @@ export default class Slider extends Component {
                         <img
                             width={800} height={500}
                             className="d-block w-100"
-                            src="/images/Flower pattern.jpg"
+                            src="images/Flower pattern.jpg"
                             alt="First slide"
                         />
                         <Carousel.Caption>
@@ -23,7 +23,7 @@ export default class Slider extends Component {
                         <img
                             width={800} height={500}
                             className="d-block w-100"
-                            src="/images/Fall2.jpg"
+                            src="images/Fall2.jpg"
                             alt="Second slide"
                         />
 
@@ -36,7 +36,7 @@ export default class Slider extends Component {
                         <img
                             width={800} height={500}
                             className="d-block w-100"
-                            src="/images/Fireworks1.jpg"
+                            src="images/Fireworks1.jpg"
                             alt="Third slide"
                         />
 

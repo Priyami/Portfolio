@@ -7,7 +7,7 @@ export default class Project extends Component {
             <div>
                 <CardDeck>
                     <Card>
-                        <Card.Img variant="top" src="./assets/cube-logoa.jpg" />
+                        <Card.Img variant="top" src="images/cube-logoa.jpg" />
                         <Card.Body>
                             <Card.Title>Brain Arts Organization</Card.Title>
                             <Card.Text>
@@ -25,7 +25,7 @@ export default class Project extends Component {
                         </Card.Footer>
                     </Card>
                     <Card>
-                        <Card.Img variant="top" src="./assets/cube-logoa.jpg" />
+                        <Card.Img variant="top" src="images/cube-logoa.jpg" />
                         <Card.Body>
                             <Card.Title>The Center for Arts at the Armory</Card.Title>
                             <Card.Text>
@@ -42,7 +42,7 @@ export default class Project extends Component {
                         </Card.Footer>
                     </Card>
                     <Card>
-                        <Card.Img variant="top" src="./assets/cube-logoa.jpg" />
+                        <Card.Img variant="top" src="images/cube-logoa.jpg" />
                         <Card.Body>
                             <Card.Title>Evidyaloka</Card.Title>
                             <Card.Text>

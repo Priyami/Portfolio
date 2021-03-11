@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
@@ -13,6 +13,7 @@ const handleClick = (e) => {
     if (e.target.id === "email") {
         setEmail(e.target.value)
         console.log(setEmail);
+        `Thanks!`
     }
     else {
         setComment(e.target.value)
@@ -25,10 +26,11 @@ const handleSubmit = (e) => {
         setEmail,
         setComment
     };
-    console.log(email);
-    axios.post("/api/sendMail", dataToSubmit)
-        .then((res) => {
+   
+    axios.post("http://localhost:3000/email", dataToSubmit)
+    .then((res) => {
             console.log(res.data)
+            
         }).catch((error) => {
             console.log(error)
         });
@@ -38,7 +40,7 @@ const handleSubmit = (e) => {
 const Contact = props => {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
-
+    
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -76,28 +78,23 @@ const Contact = props => {
                     return errors;
                 }}
                 onSubmit={values => {
-                    this.setSubmitting(true);
+                    
                     // Make Email API Calls here
-                    axios.post("/api/sendMail", values)
-                    .then((res) => {
-                        console.log(res.data)
-                    }).catch((error) => {
-                        console.log(error)
-                    });
+                    
 
                     console.log(values);
                 
 
-                   setTimeout(() => {
+                   /*setTimeout(() => {
                         setSubmitting(false);
                         alert(
                             `Submitted Successfully ->  ${JSON.stringify(values, null, 2)}`
                         );
-                    }, 2000);
+                    }, 2000);*/
                 }}
 
                 render={({ submitForm, isSubmitting, values }) => (
-                    <Form>
+                    <Form action = "/email" method ="POST">
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">
@@ -127,9 +124,12 @@ const Contact = props => {
                                 <Col xs="12">
                                     <button onSubmit={handleSubmit} type="submit">Submit</button>
                                 </Col>
+                                
+
                             </Row>
                            
                         </Container>
+
                     </Form>
                 )}
             />

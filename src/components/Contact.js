@@ -27,8 +27,8 @@ const handleSubmit = (e) => {
         setComment
     };
    
-    axios.post("/api/sendMail", dataToSubmit)
-        .then((res) => {
+    axios.post("http://localhost:3000/email", dataToSubmit)
+    .then((res) => {
             console.log(res.data)
             
         }).catch((error) => {
@@ -78,28 +78,23 @@ const Contact = props => {
                     return errors;
                 }}
                 onSubmit={values => {
-                    this.setSubmitting(true);
+                    
                     // Make Email API Calls here
-                    axios.post("/api/sendMail", values)
-                    .then((res) => {
-                        console.log(res.data)
-                    }).catch((error) => {
-                        console.log(error)
-                    });
+                    
 
                     console.log(values);
                 
 
-                   setTimeout(() => {
+                   /*setTimeout(() => {
                         setSubmitting(false);
                         alert(
                             `Submitted Successfully ->  ${JSON.stringify(values, null, 2)}`
                         );
-                    }, 2000);
+                    }, 2000);*/
                 }}
 
                 render={({ submitForm, isSubmitting, values }) => (
-                    <Form>
+                    <Form action = "/email" method ="POST">
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">

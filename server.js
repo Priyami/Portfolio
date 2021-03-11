@@ -1,17 +1,16 @@
 var express = require('express');
-
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const {sendEmail} = require("./src/mail");
 var app  = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.post("http://localhost:8086/api/sendMail", (req, res) => {
-    console.log(req.body)
+app.use('/email', (req, res) => {
+    res.send('hello');
+    console.log(req.body);
     sendEmail(req.body.email, req.body.comment, "hello")
-});
-
-app.listen(8086, () => {
-    console.log("Server Running at 8086");
-});
+})
+app.listen(3000, () => {
+    console.log("Server Running at 3000");
+})

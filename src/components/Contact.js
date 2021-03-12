@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
-import axios from 'axios';
-
 import './Contact.css';
+const {sendEmail} = require("../mail");
 
 
 const handleClick = (e) => {
@@ -21,26 +20,13 @@ const handleClick = (e) => {
 }
 const handleSubmit = (e) => {
     e.preventDefault();
-
-    const dataToSubmit = {
-        setEmail,
-        setComment
-    };
-   
-    axios.post("http://localhost:3000/email", dataToSubmit)
-    .then((res) => {
-            console.log(res.data)
-            
-        }).catch((error) => {
-            console.log(error)
-        });
 }
 
 
 const Contact = props => {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
-    
+
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -78,23 +64,14 @@ const Contact = props => {
                     return errors;
                 }}
                 onSubmit={values => {
-                    
-                    // Make Email API Calls here
-                    
+                    //axios.post("http://localhost:3000/email", values)
+                    sendEmail(email, comment, "hello");
 
-                    console.log(values);
-                
 
-                   /*setTimeout(() => {
-                        setSubmitting(false);
-                        alert(
-                            `Submitted Successfully ->  ${JSON.stringify(values, null, 2)}`
-                        );
-                    }, 2000);*/
                 }}
 
                 render={({ submitForm, isSubmitting, values }) => (
-                    <Form action = "/email" method ="POST">
+                    <Form method="POST">
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">
@@ -122,12 +99,12 @@ const Contact = props => {
                                 </Col>
 
                                 <Col xs="12">
-                                    <button onSubmit={handleSubmit} type="submit">Submit</button>
+                                    <button type="submit">Submit</button>
                                 </Col>
-                                
+
 
                             </Row>
-                           
+
                         </Container>
 
                     </Form>

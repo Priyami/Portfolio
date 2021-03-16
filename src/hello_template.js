@@ -13,7 +13,7 @@ const Hello = data => {
             <body style = "margin:0; padding:0">
                 <br />
                 <br />
-                <div>Hello from Template</div>
+                <div>Hello Priya,</div>
                 <div>${data}<div>
                 <br />
                 <br />

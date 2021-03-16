@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
+import axios from 'axios';
 import './Contact.css';
-const {sendEmail} = require("../mail");
 
 
 const handleClick = (e) => {
@@ -64,14 +64,20 @@ const Contact = props => {
                     return errors;
                 }}
                 onSubmit={values => {
-                    //axios.post("http://localhost:3000/email", values)
-                    sendEmail(email, comment, "hello");
-
+                    console.log(values);
+                    axios.post('http://localhost:3000/users', values)
+                        .then(res => {
+                            console.log("res", res.data);
+                        })
+                          .catch(err => {
+                            console.log("error in request", err);
+                         });
+                    //sendEmail(email, comment, "hello");
 
                 }}
 
                 render={({ submitForm, isSubmitting, values }) => (
-                    <Form method="POST">
+                    <Form>
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">

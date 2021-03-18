@@ -1,16 +1,20 @@
+//import React from 'react';
+//var email = require ("./src/components/Contact.js");
 const Hello = data => {
+
     return `
         <!DOCTYPE html>
         <html style = "margin: 0; padding: 0;">
             <head>
                 <title>
-                    Hello
+                    Hi,
                 </title>
             </head>
             <body style = "margin:0; padding:0">
                 <br />
                 <br />
-                <div>Hello</div>
+                <div>Hello Priya,</div>
+                <div>${data}<div>
                 <br />
                 <br />
             </body>

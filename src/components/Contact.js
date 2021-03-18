@@ -3,43 +3,43 @@ import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
-
 import './Contact.css';
-
-
-const handleClick = (e) => {
-    e.preventDefault();
-
-    if (e.target.id === "email") {
-        setEmail(e.target.value)
-        console.log(setEmail);
-        `Thanks!`
-    }
-    else {
-        setComment(e.target.value)
-    }
-}
-const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const dataToSubmit = {
-        setEmail,
-        setComment
-    };
-   
-    axios.post("http://localhost:3000/email", dataToSubmit)
-    .then((res) => {
-            console.log(res.data)
-            
-        }).catch((error) => {
-            console.log(error)
-        });
-}
-
 
 const Contact = props => {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+    const [valid, setValid] = useState(false);
+    const handleClick = (e) => {
+        e.preventDefault();
+    
+        if (e.target.id === "email") {
+            setEmail(e.target.value);
+            console.log("From handleclick",setEmail);
+            `Thanks!`
+        }
+        else {
+            setComment(e.target.value);
+        }
+    }
+    const handleSubmit = (values,actions) => {
+        
+        console.log(values);
+        axios.post('http://localhost:3000/users', values)
+            .then(res => {
+               console.log("res", res.data);
+                if(values.email && values.comment) {
+                    setValid(true);
+                }
+                setSubmitted(true);
+                actions.resetForm();
+                
+            })
+            .catch(err => {
+                console.log("error in request", err);
+            });
+    }
+    
     
     return (
         <div>
@@ -61,6 +61,9 @@ const Contact = props => {
                 initialValues={{
                     email: "",
                     comment: "",
+                    valid:false,
+                    submitted:false,
+                    
                 }}
                 validate={values => {
                     const errors = {};
@@ -75,28 +78,18 @@ const Contact = props => {
                     if (!values.comment) {
                         errors.comment = "Required";
                     }
+                    
                     return errors;
                 }}
-                onSubmit={values => {
-                    
-                    // Make Email API Calls here
-                    
+                onSubmit={handleSubmit}
 
-                    console.log(values);
-                
-
-                   /*setTimeout(() => {
-                        setSubmitting(false);
-                        alert(
-                            `Submitted Successfully ->  ${JSON.stringify(values, null, 2)}`
-                        );
-                    }, 2000);*/
-                }}
-
-                render={({ submitForm, isSubmitting, values }) => (
-                    <Form action = "/email" method ="POST">
+                render={({  isSubmitting,resetForm }) => (
+                    <Form>
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
+                                <Col xs="12">
+
+                                </Col>
                                 <Col xs="12">
                                     <Field
                                         type="email"
@@ -122,17 +115,20 @@ const Contact = props => {
                                 </Col>
 
                                 <Col xs="12">
-                                    <button onSubmit={handleSubmit} type="submit">Submit</button>
+                                    <button type="submit" id="submit" disabled={isSubmitting} >Submit</button>
+                                    
                                 </Col>
-                                
+                                <Col xs="12">
+                                {submitted && valid && <span className='success-message'>Thank you for the comment!. Will get back to you.</span>}
+                                </Col>
 
                             </Row>
-                           
+
                         </Container>
 
                     </Form>
                 )}
-            />
+           />
         </div>
     );
 }

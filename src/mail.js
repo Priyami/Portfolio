@@ -6,16 +6,16 @@ const getEmailData = (to, message, template)=> {
     switch(template){
         case "hello":
                 data = {
-                    from: `frommyemail@gmail.com`,
-                    to:"tomyemail@gmail.com",
+                    from: "newtonvithi@gmail.com",
+                    to:"newtonvithi@gmail.com",
                     subject: `Please include to your world ${to}`,
                     html: Hello(message)
                 }
                 break;
         case "thanks":
             data = {
-                from: "frommyemail@gmail.com",
-                to: "tomyemail@gmail.com",
+                from: "newtonvithi@gmail.com",
+                to: "newtonvithi@gmail.com",
                 subject: 'Portfolio Message',
                 html: Thanks()
             }
@@ -34,8 +34,8 @@ const sendEmail = (to, message, type) => {
         pool: true,
         service: "gmail",
         auth: {
-            user: "dummyyouremail@gmail.com",
-            pass: "yourpassword"
+            user: "newtonvithi@gmail.com",
+            pass: "Mitra2015;"
         }
     })
     const mail = getEmailData(to, message, type)

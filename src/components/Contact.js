@@ -5,28 +5,42 @@ import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import './Contact.css';
 
-
-const handleClick = (e) => {
-    e.preventDefault();
-
-    if (e.target.id === "email") {
-        setEmail(e.target.value)
-        console.log(setEmail);
-        `Thanks!`
-    }
-    else {
-        setComment(e.target.value)
-    }
-}
-const handleSubmit = (e) => {
-    e.preventDefault();
-}
-
-
 const Contact = props => {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
-
+    const [submitted, setSubmitted] = useState(false);
+    const [valid, setValid] = useState(false);
+    const handleClick = (e) => {
+        e.preventDefault();
+    
+        if (e.target.id === "email") {
+            setEmail(e.target.value);
+            console.log("From handleclick",setEmail);
+            `Thanks!`
+        }
+        else {
+            setComment(e.target.value);
+        }
+    }
+    const handleSubmit = (values,actions) => {
+        
+        console.log(values);
+        axios.post('http://localhost:3000/users', values)
+            .then(res => {
+               console.log("res", res.data);
+                if(values.email && values.comment) {
+                    setValid(true);
+                }
+                setSubmitted(true);
+                actions.resetForm();
+                
+            })
+            .catch(err => {
+                console.log("error in request", err);
+            });
+    }
+    
+    
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -47,6 +61,9 @@ const Contact = props => {
                 initialValues={{
                     email: "",
                     comment: "",
+                    valid:false,
+                    submitted:false,
+                    
                 }}
                 validate={values => {
                     const errors = {};
@@ -61,25 +78,18 @@ const Contact = props => {
                     if (!values.comment) {
                         errors.comment = "Required";
                     }
+                    
                     return errors;
                 }}
-                onSubmit={values => {
-                    console.log(values);
-                    axios.post('http://localhost:3000/users', values)
-                        .then(res => {
-                            console.log("res", res.data);
-                        })
-                          .catch(err => {
-                            console.log("error in request", err);
-                         });
-                    //sendEmail(email, comment, "hello");
+                onSubmit={handleSubmit}
 
-                }}
-
-                render={({ submitForm, isSubmitting, values }) => (
+                render={({  isSubmitting,resetForm }) => (
                     <Form>
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
+                                <Col xs="12">
+
+                                </Col>
                                 <Col xs="12">
                                     <Field
                                         type="email"
@@ -105,9 +115,12 @@ const Contact = props => {
                                 </Col>
 
                                 <Col xs="12">
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" id="submit" disabled={isSubmitting} >Submit</button>
+                                    
                                 </Col>
-
+                                <Col xs="12">
+                                {submitted && valid && <span className='success-message'>Thank you for the comment!. Will get back to you.</span>}
+                                </Col>
 
                             </Row>
 
@@ -115,7 +128,7 @@ const Contact = props => {
 
                     </Form>
                 )}
-            />
+           />
         </div>
     );
 }

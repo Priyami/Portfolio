@@ -8,27 +8,39 @@ import './Contact.css';
 const Contact = props => {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [updatename, setUpdatename] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [valid, setValid] = useState(false);
+
+    
     const handleClick = (e) => {
         e.preventDefault();
-    
+       
         if (e.target.id === "email") {
             setEmail(e.target.value);
             console.log("From handleclick",setEmail);
             `Thanks!`
         }
-        else {
+        else if(e.target.id === "comment") {
             setComment(e.target.value);
+        }
+        else if(e.target.id === "firstname"){
+            setFirstname(e.target.value);
+        }
+        else{
+            setLastname(e.target.value);
         }
     }
     const handleSubmit = (values,actions) => {
         
-        console.log(values);
+        setUpdatename(updatename.concat(values.firstname).concat(values.lastname));
+        
         axios.post('http://localhost:3000/users', values)
             .then(res => {
                console.log("res", res.data);
-                if(values.email && values.comment) {
+                if(values.email && values.comment && values.firstname && values.lastname) {
                     setValid(true);
                 }
                 setSubmitted(true);
@@ -38,6 +50,7 @@ const Contact = props => {
             .catch(err => {
                 console.log("error in request", err);
             });
+           
     }
     
     
@@ -61,6 +74,8 @@ const Contact = props => {
                 initialValues={{
                     email: "",
                     comment: "",
+                    firstname:"",
+                    lastname:"",
                     valid:false,
                     submitted:false,
                     
@@ -82,13 +97,37 @@ const Contact = props => {
                     return errors;
                 }}
                 onSubmit={handleSubmit}
-
+                
                 render={({  isSubmitting,resetForm }) => (
                     <Form>
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">
 
+                                </Col>
+                                <Col xs="12">
+                                    <Field
+                                        type="text"
+                                        label="Firstname"
+                                        name="firstname"
+                                        id="firstname"
+                                        value={firstname}
+                                        component={ReactstrapInput}
+                                        onChange={handleClick}
+
+                                    />
+                                </Col>
+                                <Col xs="12">
+                                    <Field
+                                        type="text"
+                                        label="Lastname"
+                                        name="lastname"
+                                        id="lastname"
+                                        value={lastname}
+                                        component={ReactstrapInput}
+                                        onChange={handleClick}
+
+                                    />
                                 </Col>
                                 <Col xs="12">
                                     <Field
@@ -115,11 +154,11 @@ const Contact = props => {
                                 </Col>
 
                                 <Col xs="12">
-                                    <button type="submit" id="submit" disabled={isSubmitting} >Submit</button>
+                                    <button type="submit" id="submit" disabled={isSubmitting}  >Submit</button>
                                     
                                 </Col>
                                 <Col xs="12">
-                                {submitted && valid && <span className='success-message'>Thank you for the comment!. Will get back to you.</span>}
+                                {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span>}
                                 </Col>
 
                             </Row>

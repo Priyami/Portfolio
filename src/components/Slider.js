@@ -16,7 +16,7 @@ export default class Slider extends Component {
                         />
                         <Carousel.Caption>
                             <h3>Freelance Web Developer</h3>
-                            <p>HTML, CSS, SASS, React-Bootstrap, ReactJs</p>
+                            <h4>HTML, CSS, SASS, React-Bootstrap, ReactJs</h4>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -29,7 +29,7 @@ export default class Slider extends Component {
 
                         <Carousel.Caption>
                             <h3>Photography</h3>
-                            <p><a href="https://500px.com/p/priyaramachanriya">Gallery</a></p>
+                            <h4><a href="https://500px.com/p/priyaramachanriya">Gallery</a></h4>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -42,7 +42,7 @@ export default class Slider extends Component {
 
                         <Carousel.Caption>
                             <h3>Guitar</h3>
-                            <p><a href="https://soundcloud.com/priya-surendranath">Sound Recorded</a></p>
+                            <h4><a href="https://soundcloud.com/priya-surendranath">Sound Recorded</a></h4>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

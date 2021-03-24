@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 class Portfolio extends Component {
     render() {
         return (
+            <div>
             <React.Fragment>
                 <Container>
                     <Row>
@@ -47,7 +48,7 @@ class Portfolio extends Component {
                     </Row>
                 </Container>
             </React.Fragment>
-
+            </div>
         );
     }
 }

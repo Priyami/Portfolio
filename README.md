@@ -32,36 +32,87 @@ Step 6 - Set Compiler, Server and Loaders
 webpack.config.js
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-   entry: './main.js',
-   output: {
-      path: path.join(__dirname, '/bundle'),
-      filename: 'index_bundle.js'
-   },
-   devServer: {
-      inline: true,
-      port: 8001
-   },
-   module: {
-      rules: [
-         {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-               presets: ['es2015', 'react']
+    entry: './src/index.js',
+    
+   
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        chunkFilename: '[id].js',
+        publicPath: ''
+    },
+    externals: {
+        express: 'express',
+      },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+       
+    },
+    module: {
+        rules: [
+            {
+		test: /\.(js|mjs|jsx|ts|tsx)$/,
+  		loader: 'babel-loader',
+                exclude: /node_modules/,
+                
+            },
+           
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    { 
+                        loader: 'style-loader' 
+                    },
+
+                    { 
+                        loader: 'css-loader',
+                        
+                    },
+
+                     { 
+                         loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [ 'autoprefixer', {}, ],
+                                ],
+                            },
+                        }
+                      },
+                      {
+                        // compiles Sass to CSS
+                        loader: 'sass-loader'
+                      }
+                ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader: 'url-loader?limit=10000&name=img/[name].[ext]',
+               
             }
-         }
-      ]
-   },
-   plugins:[
-      new HtmlWebpackPlugin({
-         template: './index.html'
-      })
-   ]
-}
+        ],
+       
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: __dirname + '/src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        }),
+        new CopyWebpackPlugin([
+            {from:'src/images', to: 'images'}
+        ])
+    
+    ]
+    
+       
+};
 
 package.json
 

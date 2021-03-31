@@ -1,7 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+const dotenv = require('dotenv').config({ 
+    path: path.join(__dirname, '/Users/karvangum/projects/Portfolio/.env') 
+})
+
 
 module.exports = {
     entry: './src/index.js',
@@ -74,7 +79,10 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {from:'src/images', to: 'images'}
-        ])
+        ]),
+        new webpack.DefinePlugin( {
+            "process.env": dotenv.parsed
+          } ),
     
     ]
     

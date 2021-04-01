@@ -80,6 +80,7 @@
     "regenerator-runtime": "^0.13.7",
     "resolve-url-loader": "3.1.2",
     "sass-loader": "^7.3.1",
+    "social-media-icons-react": "^1.1.2",
     "webpack": "^4.42.0"
   },
   "bugs": {

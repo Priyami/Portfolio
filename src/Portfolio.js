@@ -6,6 +6,7 @@ import Menubar from './components/Menubar';
 import Slider from './components/Slider';
 import Project from './components/Project';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 //import Timeline from './components/timeline'
 class Portfolio extends Component {
     render() {
@@ -45,6 +46,12 @@ class Portfolio extends Component {
                             </div>
                         </Col>
                         
+                    </Row>
+                    
+                    <Row>
+                        <Col>
+                           <Footer></Footer>
+                        </Col>
                     </Row>
                 </Container>
             </React.Fragment>

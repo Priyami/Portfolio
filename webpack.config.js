@@ -82,7 +82,7 @@ module.exports = {
         ]),
         new webpack.DefinePlugin( {
             "process.env": dotenv.parsed
-          } ),
+          }),
     
     ]
     

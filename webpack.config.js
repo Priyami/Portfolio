@@ -6,10 +6,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv').config({ 
     path: path.join(__dirname, '/Users/karvangum/projects/Portfolio/.env') 
 })
-
-
 module.exports = {
-    entry: './src/index.js',
+    entry: '/Users/karvangum/projects/Portfolio/src/index.js',
     
    
     output: {

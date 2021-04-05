@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component}  from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import './Portfolio.css';
@@ -6,7 +6,10 @@ import Menubar from './components/Menubar';
 import Slider from './components/Slider';
 import Project from './components/Project';
 import Contact from './components/Contact';
+import Foliofoot from './components/Foliofoot';
+
 //import Timeline from './components/timeline'
+
 class Portfolio extends Component {
     render() {
         return (
@@ -44,13 +47,22 @@ class Portfolio extends Component {
                             </Card>
                             </div>
                         </Col>
-                        
                     </Row>
+                    <br />
+                    <Row>
+                        <Col>
+                            
+                            <Foliofoot></Foliofoot>
+                           
+                        
+                        </Col>
+                    </Row>
+                    
                 </Container>
             </React.Fragment>
             </div>
-        );
+        )
     }
 }
 
-export default Portfolio;
+export default (Portfolio);

@@ -13,7 +13,7 @@ export default class Menubar extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#project">Project</Nav.Link>
-                        <Nav.Link href="#aboutme">About Me</Nav.Link>
+                        <Nav.Link href="https://docs.google.com/document/d/1A6W_kIqgbzozeMr541f40zJhCjQIc-zl5gMdB7f5Acw/edit?usp=sharing">Resume</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

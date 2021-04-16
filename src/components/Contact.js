@@ -55,12 +55,13 @@ const Contact = props => {
 
                 }
                 setSubmitted(true);
-               
+                actions.resetForm();
                 
 
                 setTimeout(() => {
                     //alert(JSON.stringify(values, null, 2));
                     setSubmitted(false);
+                    setUpdatename('');
                   }, 5000);
                 
             })

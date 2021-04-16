@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
+import { useFormikContext } from 'formik'
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import './Contact.css';
@@ -12,16 +13,21 @@ const Contact = props => {
     const [lastname, setLastname] = useState('');
     const [updatename, setUpdatename] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [submiting, setSubmiting] = useState(false);
+
     const [valid, setValid] = useState(false);
+   
 
     
     const handleClick = (e) => {
+
         e.preventDefault();
        
         if (e.target.id === "email") {
             setEmail(e.target.value);
             console.log("From handleclick",setEmail);
             `Thanks!`
+            
         }
         else if(e.target.id === "comment") {
             setComment(e.target.value);
@@ -31,10 +37,14 @@ const Contact = props => {
         }
         else{
             setLastname(e.target.value);
+            
         }
+       
+        
+        
     }
     const handleSubmit = (values,actions) => {
-        
+       
         setUpdatename(updatename.concat(values.firstname).concat(values.lastname));
         
         axios.post('http://localhost:3000/users', values)
@@ -42,16 +52,25 @@ const Contact = props => {
                console.log("res", res.data);
                 if(values.email && values.comment && values.firstname && values.lastname) {
                     setValid(true);
+
                 }
                 setSubmitted(true);
                 actions.resetForm();
+                
+
+                setTimeout(() => {
+                    //alert(JSON.stringify(values, null, 2));
+                    setSubmitted(false);
+                    setUpdatename('');
+                  }, 5000);
                 
             })
             .catch(err => {
                 console.log("error in request", err);
             });
-           
-    }
+        }
+        
+   
     
     
     return (
@@ -81,7 +100,9 @@ const Contact = props => {
                     
                 }}
                 validate={values => {
+                   
                     const errors = {};
+                   
 
                     if (!values.email) {
                         errors.email = "Required";
@@ -90,22 +111,32 @@ const Contact = props => {
                     ) {
                         errors.email = "Invalid email address";
                     }
-                    if (!values.comment) {
+                    else if (!values.comment) {
                         errors.comment = "Required";
                     }
+                    (values.email.length > 0 && values.comment.length > 0  && values.firstname.length > 0   && values.lastname.length > 0)
+            
+                        ? setSubmiting(true): setSubmiting(false);
                     
+                    
+                   
                     return errors;
                 }}
-                onSubmit={handleSubmit}
                 
-                render={({  isSubmitting,resetForm }) => (
+                
+                onSubmit={handleSubmit}
+
+                render={() => (
                     <Form>
+
+
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">
 
                                 </Col>
                                 <Col xs="12">
+                               
                                     <Field
                                         type="text"
                                         label="Firstname"
@@ -114,10 +145,12 @@ const Contact = props => {
                                         value={firstname}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
-
+                                       
                                     />
                                 </Col>
                                 <Col xs="12">
+                              
+                                    
                                     <Field
                                         type="text"
                                         label="Lastname"
@@ -126,10 +159,14 @@ const Contact = props => {
                                         value={lastname}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
+                                       
+
 
                                     />
                                 </Col>
                                 <Col xs="12">
+                               
+                                    
                                     <Field
                                         type="email"
                                         label="Email"
@@ -138,10 +175,14 @@ const Contact = props => {
                                         value={email}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
+                                        
+
 
                                     />
                                 </Col>
                                 <Col xs="12">
+                               
+                                    
                                     <Field
                                         type="textarea"
                                         label="Comment"
@@ -150,11 +191,17 @@ const Contact = props => {
                                         value={comment}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
+                                        
+
+                                        
                                     />
+                                     
                                 </Col>
 
                                 <Col xs="12">
-                                    <button type="submit" id="submit" disabled={isSubmitting}  >Submit</button>
+                                
+                                    
+                                    <button type="submit" id="submit" disabled={!submiting}  >Submit</button>
                                     
                                 </Col>
                                 <Col xs="12">

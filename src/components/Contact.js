@@ -20,8 +20,8 @@ const Contact = props => {
        
         if (e.target.id === "email") {
             setEmail(e.target.value);
-            console.log("From handleclick",setEmail);
-            `Thanks!`
+            //console.log("From handleclick",setEmail);
+            //`Thanks!`
         }
         else if(e.target.id === "comment") {
             setComment(e.target.value);
@@ -35,11 +35,11 @@ const Contact = props => {
     }
     const handleSubmit = (values,actions) => {
         
-        setUpdatename(updatename.concat(values.firstname).concat(values.lastname));
         
         axios.post('http://localhost:3000/users', values)
             .then(res => {
-               console.log("res", res.data);
+                console.log("res", res.data);
+                setUpdatename(updatename.concat(res.data.firstname).concat(res.data.lastname));
                 if(values.email && values.comment && values.firstname && values.lastname) {
                     setValid(true);
                 }
@@ -48,7 +48,8 @@ const Contact = props => {
                 
             })
             .catch(err => {
-                console.log("error in request", err);
+                console.log("Error in Request", err);
+                
             });
            
     }
@@ -76,8 +77,7 @@ const Contact = props => {
                     comment: "",
                     firstname:"",
                     lastname:"",
-                    valid:false,
-                    submitted:false,
+                    
                     
                 }}
                 validate={values => {
@@ -158,7 +158,7 @@ const Contact = props => {
                                     
                                 </Col>
                                 <Col xs="12">
-                                {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span>}
+                                {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span> }
                                 </Col>
 
                             </Row>

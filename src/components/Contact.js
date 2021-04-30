@@ -3,6 +3,8 @@ import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
+//const {sendEmail}  = require('/Users/karvangum/projects/Portfolio/src/mail');
+
 import './Contact.css';
 
 const Contact = props => {
@@ -14,47 +16,49 @@ const Contact = props => {
     const [submitted, setSubmitted] = useState(false);
     const [valid, setValid] = useState(false);
 
-    
+
     const handleClick = (e) => {
         e.preventDefault();
-       
+
         if (e.target.id === "email") {
             setEmail(e.target.value);
             //console.log("From handleclick",setEmail);
             //`Thanks!`
         }
-        else if(e.target.id === "comment") {
+        else if (e.target.id === "comment") {
             setComment(e.target.value);
         }
-        else if(e.target.id === "firstname"){
+        else if (e.target.id === "firstname") {
             setFirstname(e.target.value);
         }
-        else{
+        else {
             setLastname(e.target.value);
         }
     }
-    const handleSubmit = (values,actions) => {
-        
-        
-        axios.post('http://localhost:3000/users', values)
+    const handleSubmit = (values, actions) => {
+
+
+        axios.post('http://localhost:4000/users', values)
             .then(res => {
                 console.log("res", res.data);
+                
                 setUpdatename(updatename.concat(res.data.firstname).concat(res.data.lastname));
-                if(values.email && values.comment && values.firstname && values.lastname) {
+                if (values.email && values.comment && values.firstname && values.lastname) {
+                    ////sendEmail(res.data.email, res.data.comment, "hello")
                     setValid(true);
                 }
                 setSubmitted(true);
                 actions.resetForm();
-                
+
             })
             .catch(err => {
                 console.log("Error in Request", err);
-                
+
             });
-           
+
     }
-    
-    
+
+
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -75,10 +79,10 @@ const Contact = props => {
                 initialValues={{
                     email: "",
                     comment: "",
-                    firstname:"",
-                    lastname:"",
-                    
-                    
+                    firstname: "",
+                    lastname: "",
+
+
                 }}
                 validate={values => {
                     const errors = {};
@@ -93,12 +97,12 @@ const Contact = props => {
                     if (!values.comment) {
                         errors.comment = "Required";
                     }
-                    
+
                     return errors;
                 }}
                 onSubmit={handleSubmit}
-                
-                render={({  isSubmitting,resetForm }) => (
+
+                render={({ isSubmitting, resetForm }) => (
                     <Form>
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
@@ -155,11 +159,12 @@ const Contact = props => {
 
                                 <Col xs="12">
                                     <button type="submit" id="submit" disabled={isSubmitting}  >Submit</button>
-                                    
+
                                 </Col>
                                 <Col xs="12">
-                                {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span> }
+                                    {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span>}
                                 </Col>
+                                
 
                             </Row>
 
@@ -169,6 +174,6 @@ const Contact = props => {
                 )}
            />
         </div>
-    )
-}
-export default Contact;
+                )
+                }
+                export default Contact;

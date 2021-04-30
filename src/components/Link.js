@@ -10,11 +10,13 @@ class Link extends Component {
             <div>
                
                    <Nav className="justify-content-end">
-                        <Nav.Link href='/report'> Report</Nav.Link>
+                        <Nav.Link href='/report'> 
+                              Report
+                        </Nav.Link>
                     </Nav>
-                    <Switch>
-                        <Route path='/report' component={Report} />
-                    </Switch>
+                    <Route path='/report' component = {Report}></Route>
+                      
+                   
                    
                     
             </div>

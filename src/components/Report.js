@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, Component } from 'react';
 import axios from 'axios';
 import VisitorTable from '../service/VisitorTable';
+export default class Report extends Component {
 
+    render()
+    {
 
-const Report = () => {
    const [visitor, setVisitor] = useState([]);
 
     useEffect(() => {
@@ -15,8 +16,7 @@ const Report = () => {
             })
     }, [])
    
-    render()
-    {
+    
     return(
         <div>
             <h1>Registered Visitor</h1>
@@ -25,6 +25,3 @@ const Report = () => {
     )
   }
 }
-
-export default Report;
-

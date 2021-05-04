@@ -2,7 +2,8 @@ import React from 'react';
 import {DataTable} from '@edx/paragon';
 
 const VisitorTable = ({ visitor }) => {
-    return (<DataTable
+    return (
+    <DataTable
         data={ visitor }
         columns={[
             {
@@ -11,7 +12,7 @@ const VisitorTable = ({ visitor }) => {
             },
             {
                 Header: 'Lastname',
-                accessor: 'Lastname',
+                accessor: 'lastname',
             },
             {
                 Header: 'Email',
@@ -26,11 +27,11 @@ const VisitorTable = ({ visitor }) => {
         isPaginated
         isSortable
         initialState={{
-            pageSize:10,
-            pageIndex:0
-        }}
-            
-    />)
+            pageSize: 10,
+            pageIndex: 0
+          }}     
+    />    
+   )
 }
 
 export default VisitorTable;

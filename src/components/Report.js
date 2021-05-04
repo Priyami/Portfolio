@@ -1,27 +1,38 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import VisitorTable from '../service/VisitorTable';
-export default class Report extends Component {
+import {Container} from 'react-bootstrap';
 
-    render()
-    {
 
-   const [visitor, setVisitor] = useState([]);
-
+const useVisit = () => {
+    const [visitor, setVisitor] = useState([]);
     useEffect(() => {
+        let mounted = true
         axios.get('http://localhost:4000/users')
-            .then((response)=>{
-                setVisitor(response)
-                console.log(response)
+            .then((result) => {
+                if (mounted) {
+                    setVisitor(result.data)
+                }
+                return () => mounted = false;
+
             })
     }, [])
-   
-    
-    return(
+    return visitor
+}
+
+const Report = () => {
+    const visitor = useVisit();
+    return (
         <div>
+             <React.Fragment>
+            <Container>
             <h1>Registered Visitor</h1>
-            <VisitorTable visitor= {visitor} />
+            <VisitorTable visitor={visitor}></VisitorTable>
+            </Container>
+            </React.Fragment>
         </div>
     )
-  }
 }
+
+
+export default Report;

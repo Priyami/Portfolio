@@ -3,7 +3,6 @@ import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
-//const {sendEmail}  = require('/Users/karvangum/projects/Portfolio/src/mail');
 
 import './Contact.css';
 
@@ -22,8 +21,7 @@ const Contact = props => {
 
         if (e.target.id === "email") {
             setEmail(e.target.value);
-            //console.log("From handleclick",setEmail);
-            //`Thanks!`
+            
         }
         else if (e.target.id === "comment") {
             setComment(e.target.value);
@@ -44,7 +42,6 @@ const Contact = props => {
                 
                 setUpdatename(updatename.concat(res.data.firstname).concat(res.data.lastname));
                 if (values.email && values.comment && values.firstname && values.lastname) {
-                    ////sendEmail(res.data.email, res.data.comment, "hello")
                     setValid(true);
                 }
                 setSubmitted(true);
@@ -174,6 +171,6 @@ const Contact = props => {
                 )}
            />
         </div>
-                )
-                }
-                export default Contact;
+    )
+}
+export default Contact;

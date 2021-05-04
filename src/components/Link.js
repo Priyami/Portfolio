@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from "react-router-dom";
 import Nav from 'react-bootstrap/Nav';
-import Report from './Report';
 
 
 class Link extends Component {
@@ -14,10 +12,8 @@ class Link extends Component {
                               Report
                         </Nav.Link>
                     </Nav>
-                    <Route path='/report' component = {Report}></Route>
-                      
-                   
-                   
+                    
+  
                     
             </div>
 

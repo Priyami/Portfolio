@@ -4,6 +4,7 @@ import { ReactstrapInput } from 'reactstrap-formik';
 import { useFormikContext } from 'formik'
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
+
 import './Contact.css';
 
 const Contact = props => {
@@ -18,22 +19,21 @@ const Contact = props => {
     const [valid, setValid] = useState(false);
    
 
-    
+
     const handleClick = (e) => {
 
         e.preventDefault();
-       
+
         if (e.target.id === "email") {
             setEmail(e.target.value);
-
         }
-        else if(e.target.id === "comment") {
+        else if (e.target.id === "comment") {
             setComment(e.target.value);
         }
-        else if(e.target.id === "firstname"){
+        else if (e.target.id === "firstname") {
             setFirstname(e.target.value);
         }
-        else{
+        else {
             setLastname(e.target.value);
             
         }
@@ -42,19 +42,17 @@ const Contact = props => {
         
     }
     const handleSubmit = (values,actions) => {
-
-        
         axios.post('http://localhost:4000/users', values)
             .then(res => {
                 console.log("res", res.data);
+                
                 setUpdatename(updatename.concat(res.data.firstname).concat(res.data.lastname));
-                if(values.email && values.comment && values.firstname && values.lastname) {
+                if (values.email && values.comment && values.firstname && values.lastname) {
                     setValid(true);
 
                 }
                 setSubmitted(true);
                 actions.resetForm();
-                
 
                 setTimeout(() => {
                     //alert(JSON.stringify(values, null, 2));
@@ -65,13 +63,10 @@ const Contact = props => {
             })
             .catch(err => {
                 console.log("Error in Request", err);
-                
+
             });
         }
-        
-   
-    
-    
+
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -92,10 +87,10 @@ const Contact = props => {
                 initialValues={{
                     email: "",
                     comment: "",
-                    firstname:"",
-                    lastname:"",
-                    
-                    
+                    firstname: "",
+                    lastname: "",
+
+
                 }}
                 validate={values => {
                    
@@ -112,6 +107,7 @@ const Contact = props => {
                     else if (!values.comment) {
                         errors.comment = "Required";
                     }
+
                     (values.email.length > 0 && values.comment.length > 0  && values.firstname.length > 0   && values.lastname.length > 0)
             
                         ? setSubmiting(true): setSubmiting(false);
@@ -121,13 +117,9 @@ const Contact = props => {
                     return errors;
                 }}
                 
-                
                 onSubmit={handleSubmit}
-
                 render={() => (
                     <Form>
-
-
                         <Container style={{ paddingTop: "5px" }}>
                             <Row>
                                 <Col xs="12">
@@ -197,14 +189,14 @@ const Contact = props => {
                                 </Col>
 
                                 <Col xs="12">
-                                
-                                    
+    
                                     <button type="submit" id="submit" disabled={!submiting}  >Submit</button>
                                     
                                 </Col>
                                 <Col xs="12">
-                                {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span> }
+                                    {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span>}
                                 </Col>
+                                
 
                             </Row>
 

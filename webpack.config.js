@@ -14,7 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         chunkFilename: '[id].js',
-        publicPath: ''
+        publicPath: '/'
     },
     externals: {
         express: 'express',
@@ -62,13 +62,16 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 loader: 'url-loader?limit=10000&name=img/[name].[ext]',
                
             }
         ],
        
     },
+    devServer: {
+        historyApiFallback: true,
+      },
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + '/src/index.html',

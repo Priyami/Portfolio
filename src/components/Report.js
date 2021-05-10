@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import VisitorTable from '../service/VisitorTable';
-import {Container} from 'react-bootstrap';
+import ReactTable from '../service/ReactTable';
+import {Container, Row, Col} from 'react-bootstrap';
 
 
 const useVisit = () => {
@@ -26,10 +27,19 @@ const Report = () => {
         <div>
              <React.Fragment>
             <Container>
-            <h1>Registered Visitor</h1>
-            <VisitorTable visitor={visitor}></VisitorTable>
+           
+                <Col>
+                    <h1>Registered Visitor</h1>
+                   
+                    
+                    <ReactTable visitor = {visitor}></ReactTable>
+                </Col>
+           
+            <br/>
+                    
             </Container>
             </React.Fragment>
+         
         </div>
     )
 }

@@ -3,7 +3,7 @@ import {DataTable} from '@edx/paragon';
 
 const VisitorTable = ({ visitor }) => {
     return (
-    <DataTable
+    <DataTable 
         data={ visitor }
         columns={[
             {
@@ -24,13 +24,20 @@ const VisitorTable = ({ visitor }) => {
             }
         ]}
         itemCount={visitor.length}
+        isSelectable
         isPaginated
         isSortable
         initialState={{
             pageSize: 10,
             pageIndex: 0
           }}     
-    />    
+    >
+    <DataTable.TableControlBar />
+    <DataTable.Table />
+    <DataTable.EmptyTable content="No results found" />
+    <DataTable.TableFooter />
+    
+    </DataTable>  
    )
 }
 

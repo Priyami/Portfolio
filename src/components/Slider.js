@@ -15,7 +15,7 @@ export default class Slider extends Component {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>Freelance Web Developer</h3>
+                            <h3>Web Developer</h3>
                             <h4>HTML, CSS, SASS, React-Bootstrap, ReactJs</h4>
                         </Carousel.Caption>
                     </Carousel.Item>

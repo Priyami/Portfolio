@@ -47,9 +47,9 @@ export default class Project extends Component {
                             <Card.Title>Evidyaloka</Card.Title>
                             <Card.Text>
                             <ListGroup variant="flush">
-                                    <ListGroup.Item>Preparing math lesson plan as recommended by school syllabus </ListGroup.Item>
+                                    <ListGroup.Item>Mathematics Grade5/Grade6 lesson plan based on school syllabus </ListGroup.Item>
                                     <ListGroup.Item>Creating presentations, worksheets and question banks</ListGroup.Item>
-                                    <ListGroup.Item>Taking Mathematics and English class for Grad(5/6)</ListGroup.Item>
+                                    <ListGroup.Item>Explained Mathematics in native Language</ListGroup.Item>
                                     <ListGroup.Item>Formatting lesson plan in MS Word and Power Point presentation</ListGroup.Item>
                                 </ListGroup>
                         </Card.Text>

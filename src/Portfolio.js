@@ -2,7 +2,6 @@ import React, {Component}  from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom';
 
-import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card';
 import './Portfolio.css';
 import Menubar from './components/Menubar';

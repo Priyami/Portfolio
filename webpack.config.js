@@ -4,10 +4,10 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv').config({ 
-    path: path.join(__dirname, '/Users/karvangum/projects/Portfolio/.env') 
+    path: path.join(__dirname, '../Portfolio/.env') 
 })
 module.exports = {
-    entry: '/Users/karvangum/projects/Portfolio/src/index.js',
+    entry: '../Portfolio/src/index.js',
     
    
     output: {

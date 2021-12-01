@@ -9,7 +9,7 @@ const dotenv = require('dotenv').config({
     path: path.join(__dirname, '../Portfolio/.env') 
 })
 module.exports = {
-    entry: '../Portfolio/src/index.js',
+    entry: '/src/index.js',
     
    
     output: {

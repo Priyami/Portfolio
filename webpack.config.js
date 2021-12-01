@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+
 const dotenv = require('dotenv').config({ 
     path: path.join(__dirname, '../Portfolio/.env') 
 })
@@ -73,6 +75,7 @@ module.exports = {
         historyApiFallback: true,
       },
     plugins: [
+        new CaseSensitivePathsPlugin(),
         new HtmlWebpackPlugin({
             template: __dirname + '/src/index.html',
             filename: 'index.html',

@@ -42,7 +42,8 @@ const Contact = props => {
         
     }
     const handleSubmit = (values,actions) => {
-        axios.post('http://localhost:4000/users', values)
+        
+            axios.post('http://localhost:4000/users/send', values)
             .then(res => {
                 console.log("res", res.data);
                 

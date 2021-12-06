@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://portfolio-priyarsurendranath.herokuapp.com/",
   "description": "A Webpack + Babel + React Starter bolerplate ",
   "repository": {
     "type": "git",

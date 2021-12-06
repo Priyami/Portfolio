@@ -20,7 +20,7 @@
   "author": "Priya",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --hot --mode production",
     "build": "webpack",
     "heroku-prebuild": "npm install --dev",
     "predeploy": "npm run build",

@@ -12,7 +12,7 @@ const useVisit = () => {
     const [visitor, setVisitor] = useState([]);
     useEffect(() => {
         let mounted = true
-        axios.get('http://localhost:4000/users')
+        axios.get('https://portfolio-nodeserver.herokuapp.com/users/getallusers')
             .then((result) => {
                 if (mounted) {
                     setVisitor(result.data)
@@ -24,14 +24,14 @@ const useVisit = () => {
     return visitor
 }
 
-const handleDeleteAll = () => {
+/*const handleDeleteAll = () => {
    
-        axios.delete('http://localhost:4000/users')
+        axios.delete('https://portfolio-nodeserver.herokuapp.com/users/delete')
         .then((result) => {
             console.log("Document successfully deleted!"); 
         })
             
-}
+}*/
 
 const Report = () => {
     const visitor = useVisit();

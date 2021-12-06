@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
-import { useFormikContext } from 'formik'
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 
@@ -56,7 +55,6 @@ const Contact = props => {
                 actions.resetForm();
 
                 setTimeout(() => {
-                    //alert(JSON.stringify(values, null, 2));
                     setSubmitted(false);
                     setUpdatename('');
                   }, 5000);

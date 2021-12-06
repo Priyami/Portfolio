@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import VisitorTable from '../service/VisitorTable';
-import ReactTable from '../service/ReactTable';
+import CustomTable from '../service/CustomTable';
 import  Card  from 'react-bootstrap/Card';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
-
 import Menubar from '../components/Menubar';
 
 
@@ -15,26 +13,24 @@ const useVisit = () => {
         axios.get('https://portfolio-nodeserver.herokuapp.com/users/getallusers')
             .then((result) => {
                 if (mounted) {
+                    console.log(result.data, "Report json get from heroku");
                     setVisitor(result.data)
                 }
+                
                 return () => mounted = false;
-
             })
+            
     }, [])
     return visitor
 }
 
-/*const handleDeleteAll = () => {
-   
-        axios.delete('https://portfolio-nodeserver.herokuapp.com/users/delete')
-        .then((result) => {
-            console.log("Document successfully deleted!"); 
-        })
-            
-}*/
+
 
 const Report = () => {
     const visitor = useVisit();
+    let visitorData = Object.keys(visitor).map((key) => {
+        return visitor[key]
+    })
     return (
         <div>
             <React.Fragment>
@@ -59,19 +55,15 @@ const Report = () => {
                                         className="d-inline-block align-top"
                                         alt="React Bootstrap logo"
                                     />{' '}
-                                    Visitors
+                                    Comments
                                 </NavbarBrand>
                             </Navbar>
 
-                            <br />
-                            <ReactTable visitor={visitor}></ReactTable>
+                            
+                            <CustomTable visitor={visitorData}></CustomTable>
                         </Col>
 
-                        <Col xs="12">
-    
-                                    <button type="submit" id="delete" onClick = {handleDeleteAll}>Delete All</button>
-                                    
-                        </Col>
+                        
                         
                     </Row>
                     </Card>

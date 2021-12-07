@@ -13,8 +13,6 @@ class Link extends Component {
                         </Nav.Link>
                     </Nav>
                     
-  
-                    
             </div>
 
         )

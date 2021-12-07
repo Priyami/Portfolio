@@ -13,8 +13,8 @@ ReactDOM.render(
         
             <Switch>
                 <Route exact path="/" component={Portfo} />
-                <Route path="/#/report" exact component={Report} />
-                <Route path="/#/Project" exact component={Project} />
+                <Route path="/report" exact component={Report} />
+                <Route path="/Project" exact component={Project} />
 
             </Switch>
        

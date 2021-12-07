@@ -9,7 +9,7 @@ class Link extends Component {
                
                    <Nav className="justify-content-end">
                         <Nav.Link href='/report'> 
-                              Comments
+                              Endorsements
                         </Nav.Link>
                     </Nav>
                     

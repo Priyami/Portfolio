@@ -46,7 +46,7 @@ const Report = () => {
                     <Row>
                    
                         <Col>
-                            <Navbar color="light" light expand="md">
+                            <Navbar  light expand="md">
                                 <NavbarBrand href="/">
                                     <img
                                         src="images/Contact-icon.png"
@@ -55,7 +55,7 @@ const Report = () => {
                                         className="d-inline-block align-top"
                                         alt="React Bootstrap logo"
                                     />{' '}
-                                    Comments
+                                    Endorsements
                                 </NavbarBrand>
                             </Navbar>
 

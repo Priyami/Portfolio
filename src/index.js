@@ -4,14 +4,17 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import {default as Portfo} from './Portfolio';
-import {default as Report} from './components/Report'
+import Report from './components/Report';
+import Project from './components/Projects';
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Router>
     <Switch>
          <Route exact path="/" component={Portfo} />
-         <Route path="/report" component={Report} />
+         <Route path="/report" exact component={Report} />
+         <Route path="/Project" exact component={Project} />
+
     </Switch>
     </Router>, document.getElementById('root'));
 

@@ -1,22 +1,24 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter , Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import {default as Portfo} from './Portfolio';
+import { default as Portfo } from './Portfolio';
 import Report from './components/Report';
 import Project from './components/Projects';
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <HashRouter>
-    <Switch>
-         <Route exact path="/" component={Portfo} />
-         <Route path="/report" exact component={Report} />
-         <Route path="/Project" exact component={Project} />
+    <BrowserRouter>
+        
+            <Switch>
+                <Route exact path="/" component={Portfo} />
+                <Route path="/report" exact component={Report} />
+                <Route path="/Project" exact component={Project} />
 
-    </Switch>
-    </HashRouter>, document.getElementById('root'));
+            </Switch>
+       
+    </BrowserRouter>, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change

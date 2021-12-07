@@ -8,7 +8,7 @@ class Link extends Component {
             <div>
                
                    <Nav className="justify-content-end">
-                        <Nav.Link href='/report'> 
+                        <Nav.Link href='/#/report'> 
                               Endorsements
                         </Nav.Link>
                     </Nav>

@@ -1,5 +1,6 @@
 .project-card {
    width: 350px;
+   margin-bottom: 25px;
 }
 .row {
     display:flex;

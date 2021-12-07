@@ -5,6 +5,7 @@ import Menubar from '../components/Menubar';
 import Portfolioimg from '../images/Portfolio.png';
 import Weatherimg from '../images/Weather.png';
 import WorldTravelimg from '../images/WorldTravelGallery.png';
+import Frontendstudygroupimg from '../images/Frontendstudygroup.png';
 
 
 import './Projects.css';
@@ -23,6 +24,7 @@ const Projects = () => {
                     <br />
 
                     <Row>
+                       
                         <Card className = "project-card">
                             <Card.Body>
                                 <Card.Link href=" https://portfolio-priyarsurendranath.herokuapp.com/"><Card.Img variant="top" src={Portfolioimg} /></Card.Link>
@@ -50,8 +52,20 @@ const Projects = () => {
                                 <small className="text-muted">World Travel Gallery</small>
                             </Card.Footer>
                         </Card>
+                        
+                        <Card className = "project-card">
+                            <Card.Body>
+                                <Card.Link href="https://frontendstudygroup.github.io/"><Card.Img variant="top" src={Frontendstudygroupimg}/></Card.Link>
 
-                    </Row>
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">Frontend-Studygroup</small>
+                            </Card.Footer>
+                        </Card>
+                      
+                        </Row>
+
+                   
 
                 </Container>
             </React.Fragment>

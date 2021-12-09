@@ -14,10 +14,7 @@ export default class Menubar extends Component {
                         <Nav.Link href="/Project">Projects</Nav.Link>
                         <Nav.Link href="https://docs.google.com/document/d/1hrOsFgyMTs2EywkoTIqX-C2-LFEdGbH9/edit?usp=sharing&ouid=107742883152419749567&rtpof=true&sd=true">Resume</Nav.Link>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
+                    
                 </Navbar>
             </div>
 

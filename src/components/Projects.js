@@ -6,7 +6,7 @@ import Portfolioimg from '../images/Portfolio.png';
 import Weatherimg from '../images/weather-react-app.gif';
 import WorldTravelimg from '../images/WorldTravelGallery.png';
 import Frontendstudygroupimg from '../images/frontendstudygroup.gif';
-import Foliofoot from './components/Foliofoot';
+import Foliofoot from './Foliofoot';
 
 
 import './Projects.css';

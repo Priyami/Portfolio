@@ -6,3 +6,7 @@
     display:flex;
     justify-content:space-between;
 }
+.project-detail{
+    width: 775px;
+    margin-bottom: 25px;
+ }

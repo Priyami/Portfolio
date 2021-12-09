@@ -5,12 +5,15 @@ table {
     border-collapse: collapse;
     margin: auto;
     margin-bottom: 45px;
+    table-layout: fixed ;
+    width: 100% ;
   }
   
   table td,
   table th {
     border-bottom: 1px solid #ddd;
     padding: 110px;
+    width: 25%;
   }
   
     
@@ -20,5 +23,10 @@ table {
     text-align: center;
     background-color: rgb(0, 122, 124);
     color: white;
+  }
+  .visitor-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
   }
   

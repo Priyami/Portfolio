@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CustomTable from '../service/CustomTable';
-import  Card  from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
 
@@ -16,14 +16,13 @@ const useVisit = () => {
                     console.log(result.data, "Report json get from heroku");
                     setVisitor(result.data)
                 }
-                
+
                 return () => mounted = false;
             })
-            
+
     }, [])
     return visitor
 }
-
 
 
 const Report = () => {
@@ -40,35 +39,28 @@ const Report = () => {
                             <Menubar></Menubar>
                         </Col>
                     </Row>
-                    
-                    <br />
+                   <br />
                     <Card body>
-                    <Row>
-                   
-                        <Col>
-                            <Navbar  light expand="md">
-                                <NavbarBrand href="/">
-                                    <img
-                                        src="images/Contact-icon.png"
-                                        width="30"
-                                        height="30"
-                                        className="d-inline-block align-top"
-                                        alt="React Bootstrap logo"
-                                    />{' '}
-                                    Endorsements
-                                </NavbarBrand>
-                            </Navbar>
+                        <Row>
 
-                            
-                            <CustomTable visitor={visitorData}></CustomTable>
-                        </Col>
-
-                        
-                        
-                    </Row>
+                            <Col>
+                                <Navbar light expand="md">
+                                    <NavbarBrand href="/">
+                                        <img
+                                            src="images/Contact-icon.png"
+                                            width="30"
+                                            height="30"
+                                            className="d-inline-block align-top"
+                                            alt="React Bootstrap logo"
+                                        />{' '}
+                                        Endorsements
+                                    </NavbarBrand>
+                                </Navbar>
+                                  <CustomTable visitor={visitorData}></CustomTable>
+                            </Col>
+                        </Row>
                     </Card>
                     <br />
-
                 </Container>
             </React.Fragment>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import { Row, Col, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
-import Portfolioimg from '../images/Portfolio.png';
+import Portfolioimg from '../images/portfolio.gif';
 import Weatherimg from '../images/weather-react-app.gif';
 import WorldTravelimg from '../images/WorldTravelGallery.png';
 import Frontendstudygroupimg from '../images/frontendstudygroup.gif';

@@ -4,6 +4,7 @@ import CustomTable from '../service/CustomTable';
 import Card from 'react-bootstrap/Card';
 import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
+import Foliofoot from './Foliofoot';
 
 
 const useVisit = () => {
@@ -61,6 +62,11 @@ const Report = () => {
                         </Row>
                     </Card>
                     <br />
+                    <Row>
+                        <Col>
+                             <Foliofoot></Foliofoot>
+                        </Col>
+                    </Row>
                 </Container>
             </React.Fragment>
 

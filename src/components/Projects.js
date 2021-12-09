@@ -6,6 +6,7 @@ import Portfolioimg from '../images/Portfolio.png';
 import Weatherimg from '../images/weather-react-app.gif';
 import WorldTravelimg from '../images/WorldTravelGallery.png';
 import Frontendstudygroupimg from '../images/frontendstudygroup.gif';
+import Foliofoot from './components/Foliofoot';
 
 
 import './Projects.css';
@@ -102,6 +103,11 @@ const Projects = () => {
                                 <ListGroup.Item>Test cases written using React Testing Library</ListGroup.Item>
                             </ListGroup>
                         </Card>
+                    </Row>
+                    <Row>
+                        <Col>
+                             <Foliofoot></Foliofoot>
+                        </Col>
                     </Row>
                 </Container>
             </React.Fragment>

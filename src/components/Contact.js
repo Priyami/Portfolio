@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Navbar, NavbarBrand, Container } from 'reactstrap';
+import { Row, Col, Navbar, NavbarBrand, Container, Spinner } from 'reactstrap';
 import { ReactstrapInput } from 'reactstrap-formik';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
@@ -14,9 +14,10 @@ const Contact = props => {
     const [updatename, setUpdatename] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [submiting, setSubmiting] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [valid, setValid] = useState(false);
-   
+    const [error, setError] = useState(null);
+
 
 
     const handleClick = (e) => {
@@ -34,37 +35,48 @@ const Contact = props => {
         }
         else {
             setLastname(e.target.value);
-            
+
         }
-       
-        
-        
+
+
+
     }
-    const handleSubmit = (values,actions) => {
-        
-            axios.post('https://portfolio-nodeserver.herokuapp.com/users/send', values)
+    const handleSubmit = (values, actions) => {
+        setIsLoading(true);
+        axios.post('https://portfolio-nodeserver.herokuapp.com/users/send', values)
             .then(res => {
-                console.log("res", res.data);
-                
-                setUpdatename(updatename.concat(res.data.firstname).concat(res.data.lastname));
+
+                setUpdatename(updatename.concat(res.data.firstname).concat('').concat(res.data.lastname));
                 if (values.email && values.comment && values.firstname && values.lastname) {
                     setValid(true);
 
                 }
                 setSubmitted(true);
                 actions.resetForm();
+                setIsLoading(false);
 
                 setTimeout(() => {
                     setSubmitted(false);
                     setUpdatename('');
-                  }, 5000);
-                
+                    setIsLoading(false);
+                }, 5000);
+
             })
             .catch(err => {
-                console.log("Error in Request", err);
+                if (err.response) {
+                    // client received an error response (5xx, 4xx)
+                    setError("Something went wrong in Response to the Server!!!")
+                } else if (err.request) {
+                    // client never received a response, or request never left
+                    setError("Something went wrong in Client!!!");
+                } else {
+                    // anything else
+                    setError(err.message);
+                }
 
             });
-        }
+        setSubmitted(false);
+    }
 
     return (
         <div>
@@ -92,9 +104,9 @@ const Contact = props => {
 
                 }}
                 validate={values => {
-                   
+
                     const errors = {};
-                   
+
 
                     if (!values.email) {
                         errors.email = "Required";
@@ -107,15 +119,15 @@ const Contact = props => {
                         errors.comment = "Required";
                     }
 
-                    (values.email.length > 0 && values.comment.length > 0  && values.firstname.length > 0   && values.lastname.length > 0)
-            
-                        ? setSubmiting(true): setSubmiting(false);
-                    
-                    
-                   
+                    (values.email.length > 0 && values.comment.length > 0 && values.firstname.length > 0 && values.lastname.length > 0)
+
+                        ? setSubmiting(true) : setSubmiting(false);
+
+
+
                     return errors;
                 }}
-                
+
                 onSubmit={handleSubmit}
                 render={() => (
                     <Form>
@@ -125,7 +137,7 @@ const Contact = props => {
 
                                 </Col>
                                 <Col xs="12">
-                               
+
                                     <Field
                                         type="text"
                                         label="Firstname"
@@ -134,12 +146,12 @@ const Contact = props => {
                                         value={firstname}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
-                                       
+
                                     />
                                 </Col>
                                 <Col xs="12">
-                              
-                                    
+
+
                                     <Field
                                         type="text"
                                         label="Lastname"
@@ -148,14 +160,14 @@ const Contact = props => {
                                         value={lastname}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
-                                       
+
 
 
                                     />
                                 </Col>
                                 <Col xs="12">
-                               
-                                    
+
+
                                     <Field
                                         type="email"
                                         label="Email"
@@ -164,14 +176,14 @@ const Contact = props => {
                                         value={email}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
-                                        
+
 
 
                                     />
                                 </Col>
                                 <Col xs="12">
-                               
-                                    
+
+
                                     <Field
                                         type="textarea"
                                         label="Comment"
@@ -180,22 +192,29 @@ const Contact = props => {
                                         value={comment}
                                         component={ReactstrapInput}
                                         onChange={handleClick}
-                                        
 
-                                        
+
+
                                     />
-                                     
+
                                 </Col>
 
                                 <Col xs="12">
-    
-                                    <button type="submit" id="submit" disabled={!submiting}  >Submit</button>
-                                    
+
+                                    <button type="submit" id="submit" disabled={!submiting} >Submit</button>
+
                                 </Col>
                                 <Col xs="12">
-                                    {submitted && valid && <span className='success-message'>Thank you {updatename.toString()} for the comment!. Will get back to you.</span>}
+                                    {isLoading && !error && <Spinner size="sm">
+                                        Loading...
+                                    </Spinner>}
+                                    {submitted && valid && !error && !isLoading
+                                        ? <span className='success-message'>Thank you! {updatename.toString()} for the comment. Will get back to you soon.</span>
+                                        : <span className='error-message'>{error}</span>
+                                    }
+
                                 </Col>
-                                
+
 
                             </Row>
 
@@ -203,7 +222,7 @@ const Contact = props => {
 
                     </Form>
                 )}
-           />
+            />
         </div>
     )
 }

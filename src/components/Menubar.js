@@ -12,9 +12,8 @@ export default class Menubar extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/Project">Projects</Nav.Link>
-                        <Nav.Link href="https://docs.google.com/document/d/1hrOsFgyMTs2EywkoTIqX-C2-LFEdGbH9/edit?usp=sharing&ouid=107742883152419749567&rtpof=true&sd=true">Resume</Nav.Link>
-                    </Nav>
-                    
+                        <Nav.Link href="https://drive.google.com/file/d/1lCfB5fsrbcSoMDWWYguM7DtV1XPMNl9w/view?usp=sharing">Resume</Nav.Link>
+                    </Nav>             
                 </Navbar>
             </div>
 

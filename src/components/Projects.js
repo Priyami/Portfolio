@@ -6,6 +6,7 @@ import Portfolioimg from '../images/portfolio.gif';
 import Weatherimg from '../images/weather-react-app.gif';
 import WorldTravelimg from '../images/WorldTravelGallery.png';
 import Frontendstudygroupimg from '../images/frontendstudygroup.gif';
+import Shoppingcartimg from '../images/shoppingcart.gif';
 import Foliofoot from './Foliofoot';
 
 
@@ -23,6 +24,27 @@ const Projects = () => {
                     </Row>
 
                     <br />
+                    <Row>
+
+                        <Card className="project-card">
+                            <Card.Body>
+                                <Card.Link href=" https://shoppingcartmodel.herokuapp.com/"><Card.Img variant="top" src={Shoppingcartimg} /></Card.Link>
+
+                            </Card.Body>
+                            <Card.Footer>
+                                <small className="text-muted">Shopping Cart Model</small>
+                            </Card.Footer>
+                        </Card>
+                        <Card className="project-detail" >
+                            <ListGroup variant="flush">
+                                <ListGroup.Item>Components written in modular structure to be precise and maintainable - Books - Cart- Layout - UI</ListGroup.Item>
+                                <ListGroup.Item>ReactJS(Front-end) - NodeJS(Back-end)/ MongoDB Atlas(Database) </ListGroup.Item>
+                                <ListGroup.Item>Under UI - Button , Input & Modal reusuable components - Explored custom component in ReactJS</ListGroup.Item>
+                                <ListGroup.Item>Redux is tha main feature in this project to explore how the data passes through every component from the global store via useSelector / useDispatch & Reducer function</ListGroup.Item>
+                                <ListGroup.Item>Features to include Redux-Toolkit - progressing stage</ListGroup.Item>
+                            </ListGroup>
+                        </Card>
+                    </Row>
 
                     <Row>
 

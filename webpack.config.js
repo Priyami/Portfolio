@@ -10,7 +10,10 @@ const dotenv = require('dotenv').config({
 })
 module.exports = {
     entry: '/src/index.js',
-
+    devServer: {
+        host: '0.0.0.0',
+        port: 3000
+      },
 
     output: {
         path: path.resolve(__dirname, 'dist'),

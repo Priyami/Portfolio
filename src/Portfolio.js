@@ -1,24 +1,26 @@
-import React, {Component}  from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import React, {Component,Suspense}  from 'react';
+import {Container, Row, Col, Spinner} from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
 import './Portfolio.css';
-import Menubar from './components/Menubar';
-import Slider from './components/Slider';
-import Project from './components/Project';
-import Contact from './components/Contact';
-import Foliofoot from './components/Foliofoot';
-import Link from './components/Link';
+const Project  = React.lazy(() => import('./components/Project'));
+const Link  = React.lazy(() => import('./components/Link'));
+const Menubar = React.lazy(() => import('./components/Menubar'));
+const Slider =  React.lazy(() => import('./components/Slider'));
+const Contact  = React.lazy(() => import('./components/Contact'));
+const Foliofoot  = React.lazy(() => import('./components/Foliofoot'));
 
 
-//import Timeline from './components/timeline'
+
 
 class Portfolio extends Component {
     render() {
         return (
             <div>
             <React.Fragment>
+            <Suspense fallback={ <div className='centered'><Spinner  animation="border" /></div>}>
+
                 <Container>
                     <Row>
                         <Col>
@@ -67,6 +69,7 @@ class Portfolio extends Component {
                     </Row>
                     
                 </Container>
+                </Suspense>
             </React.Fragment>
             </div>
         )

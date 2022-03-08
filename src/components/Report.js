@@ -11,10 +11,9 @@ const useVisit = () => {
     const [visitor, setVisitor] = useState([]);
     useEffect(() => {
         let mounted = true
-        axios.get('https://portfolio-nodeserver.herokuapp.com/users/getallusers')
+         axios.get('https://portfolio-nodeserver.herokuapp.com/users/getallusers')
             .then((result) => {
                 if (mounted) {
-                    console.log(result.data, "Report json get from heroku");
                     setVisitor(result.data)
                 }
 
@@ -22,7 +21,7 @@ const useVisit = () => {
             })
 
     }, [])
-    return visitor
+    return visitor;
 }
 
 
@@ -32,7 +31,7 @@ const Report = () => {
         return visitor[key]
     })
     return (
-        <div>
+      
             <React.Fragment>
                 <Container>
                     <Row>
@@ -70,7 +69,7 @@ const Report = () => {
                 </Container>
             </React.Fragment>
 
-        </div>
+       
     )
 }
 

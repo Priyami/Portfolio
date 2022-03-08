@@ -1,23 +1,35 @@
-# pull official base image
-FROM node:16-alpine3.12
+# stage1 as builder
+FROM node:16-alpine as builder
 
-# set working directory
 WORKDIR /Portfolio
 
+# copy the package.json to install dependencies
+COPY package.json package-lock.json ./
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-
-# add app
-COPY ./ ./
-
-
+# Install the dependencies and make the folder
 RUN npm install 
 
-RUN ["npm", "run", "build"]
 
-EXPOSE 4001
-# start app
-CMD ["npm", "run", "dev-server"]
+COPY . ./
+
+# Build the project and copy the files
+RUN npm run build
+
+
+FROM nginx:1.20-alpine
+
+#!/bin/sh
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+
+## Remove default nginx index page
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy from the stage 
+COPY --from=builder /Portfolio/dist/ /usr/share/nginx/
+
+EXPOSE  80
+
+ENTRYPOINT ["nginx","-g","daemon off;"]
 

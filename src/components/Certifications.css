@@ -1,0 +1,12 @@
+.project-card {
+    width: 350px;
+    margin: 25px;
+ }
+ .row {
+     display:flex;
+     justify-content:space-between;
+ }
+ .project-detail{
+     width: 775px;
+     margin-bottom: 25px;
+  }

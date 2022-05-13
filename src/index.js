@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { default as Portfo } from './Portfolio';
 import Report from './components/Report';
 import Project from './components/Projects';
+import Certifications from './components/Certifications';
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
                 <Route exact path="/" component={Portfo} />
                 <Route path="/report" exact component={Report} />
                 <Route path="/Project" exact component={Project} />
+                <Route path="/Certifications" exact component={Certifications} />
 
             </Switch>
        

@@ -12,7 +12,7 @@ export default class Menubar extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/Project">Projects</Nav.Link>
-                        <Nav.Link href="https://drive.google.com/file/d/1lCfB5fsrbcSoMDWWYguM7DtV1XPMNl9w/view?usp=sharing">Resume</Nav.Link>
+                        <Nav.Link href="https://drive.google.com/file/d/1GY-bZ47C1E8RO_7QULXlzD1nrVr_SYGe/view?usp=sharing">Resume</Nav.Link>
                     </Nav>             
                 </Navbar>
             </div>

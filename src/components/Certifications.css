@@ -1,12 +1,5 @@
-.project-card {
+.certi-card {
     width: 350px;
-    margin-bottom: 25px;
+    height: 450px;
  }
- .row {
-     display:flex;
-     justify-content:space-between;
- }
- .project-detail{
-     width: 775px;
-     margin-bottom: 25px;
-  }
+ 

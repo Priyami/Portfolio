@@ -7,6 +7,8 @@ import { default as Portfo } from './Portfolio';
 import Report from './components/Report';
 import Project from './components/Projects';
 import Certifications from './components/Certifications';
+import Resume from './components/Resume';
+
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -17,6 +19,7 @@ ReactDOM.render(
                 <Route path="/report" exact component={Report} />
                 <Route path="/Project" exact component={Project} />
                 <Route path="/Certifications" exact component={Certifications} />
+                <Route path="/Resume" exact component={Resume} />
 
             </Switch>
        

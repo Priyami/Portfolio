@@ -23,7 +23,7 @@ const Certifications = () => {
                         <Col md={4}>
                             <Card className='certi-card'>
                                 <Card.Body>
-                                    <Card.Link href="https://drive.google.com/file/d/1tHxrhwbIqV6LB2tgos0VmnxdudPm0xS0/view?usp=sharing"><Card.Img variant="top" src={ReactCertificate} /></Card.Link>
+                                    <Card.Img variant="top" src={ReactCertificate} />
 
                                 </Card.Body>
                                 <Card.Footer>
@@ -35,8 +35,7 @@ const Certifications = () => {
                         <Col>
                             <Card className='certi-card'>
                                 <Card.Body>
-                                    <Card.Link href="https://drive.google.com/file/d/1b7fw7hGxRI1GIX-T3RXGjBNiB63YgGxO/view?usp=sharing"><Card.Img variant="top" src={StartupEngCertificate} /></Card.Link>
-
+                                  <Card.Img variant="top" src={StartupEngCertificate} />
                                 </Card.Body>
                                 <Card.Footer>
                                     <small className="text-muted">Startup-Engineering - CourseEra </small>

@@ -21,7 +21,7 @@
   "main": "index.js",
   "scripts": {
     "dev-server": " webpack-dev-server --open --hot --mode development",
-    "heroku-prebuild": "npm install --force",
+    "heroku-prebuild": "npm install --legacy-peer-deps",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "start": "node server.js",

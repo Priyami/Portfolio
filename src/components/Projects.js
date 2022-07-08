@@ -32,7 +32,7 @@ const Projects = () => {
 
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">Shopping Cart Model</small>
+                                <Card.Link className="link" href=" https://shoppingcartmodel.herokuapp.com/">Shopping Cart Model</Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card className="project-detail" >
@@ -54,7 +54,7 @@ const Projects = () => {
 
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">Portfolio</small>
+                                <Card.Link href=" https://portfolio-priyarsurendranath.herokuapp.com/" className="link">Portfolio</Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card className="project-detail" >
@@ -75,7 +75,7 @@ const Projects = () => {
 
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">Weather</small>
+                                <Card.Link className="link" href=" https://weather-framework.herokuapp.com/">Weather</Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card className="project-detail">
@@ -96,7 +96,7 @@ const Projects = () => {
 
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">World Travel Gallery</small>
+                                <Card.Link className="link" href="https://serene-wildwood-3210.herokuapp.com/">World Travel Gallery</Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card className="project-detail">
@@ -114,7 +114,7 @@ const Projects = () => {
 
                             </Card.Body>
                             <Card.Footer>
-                                <small className="text-muted">Frontend-Studygroup</small>
+                                <Card.Link className="link" href="https://frontendstudygroup.github.io/">Frontend-Studygroup</Card.Link>
                             </Card.Footer>
                         </Card>
                         <Card className="project-detail">

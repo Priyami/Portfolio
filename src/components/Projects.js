@@ -22,20 +22,19 @@ const Projects = () => {
                             <Menubar></Menubar>
                         </Col>
                     </Row>
-
                     <br />
+                    <Card.Header>
+                        <Card.Link className="link" href=" https://shoppingcartmodel.herokuapp.com/">Shopping Cart Model</Card.Link>
+                    </Card.Header>
                     <Row>
-
                         <Card className="project-card">
                             <Card.Body>
                                 <Card.Link href=" https://shoppingcartmodel.herokuapp.com/"><Card.Img variant="top" src={Shoppingcartimg} /></Card.Link>
 
                             </Card.Body>
-                            <Card.Footer>
-                                <Card.Link className="link" href=" https://shoppingcartmodel.herokuapp.com/">Shopping Cart Model</Card.Link>
-                            </Card.Footer>
+
                         </Card>
-                        <Card className="project-detail" >
+                        <Card className="project-detail">
                             <ListGroup variant="flush">
                                 <ListGroup.Item>Components written in modular structure to be precise and maintainable - Books - Cart- Layout - UI</ListGroup.Item>
                                 <ListGroup.Item>ReactJS(Front-end) - NodeJS(Back-end)/ MongoDB Atlas(Database) </ListGroup.Item>
@@ -46,16 +45,16 @@ const Projects = () => {
                         </Card>
                     </Row>
 
+                    <Card.Header>
+                                <Card.Link href=" https://portfolio-priyarsurendranath.herokuapp.com/" className="link">Portfolio</Card.Link>
+                    </Card.Header>
                     <Row>
-
                         <Card className="project-card">
                             <Card.Body>
                                 <Card.Link href=" https://portfolio-priyarsurendranath.herokuapp.com/"><Card.Img variant="top" src={Portfolioimg} /></Card.Link>
 
                             </Card.Body>
-                            <Card.Footer>
-                                <Card.Link href=" https://portfolio-priyarsurendranath.herokuapp.com/" className="link">Portfolio</Card.Link>
-                            </Card.Footer>
+                           
                         </Card>
                         <Card className="project-detail" >
                             <ListGroup variant="flush">
@@ -68,15 +67,14 @@ const Projects = () => {
                             </ListGroup>
                         </Card>
                     </Row>
+                    <Card.Header>
+                                <Card.Link className="link" href=" https://weather-framework.herokuapp.com/">Weather</Card.Link>
+                    </Card.Header>
                     <Row>
                         <Card className="project-card">
                             <Card.Body>
                                 <Card.Link href=" https://weather-framework.herokuapp.com/"><Card.Img variant="top" src={Weatherimg} /></Card.Link>
-
                             </Card.Body>
-                            <Card.Footer>
-                                <Card.Link className="link" href=" https://weather-framework.herokuapp.com/">Weather</Card.Link>
-                            </Card.Footer>
                         </Card>
                         <Card className="project-detail">
                             <ListGroup variant="flush">
@@ -89,15 +87,16 @@ const Projects = () => {
                             </ListGroup>
                         </Card>
                     </Row>
+                    <Card.Header>
+                                <Card.Link className="link" href="https://serene-wildwood-3210.herokuapp.com/">World Travel Gallery</Card.Link>
+                    </Card.Header>
                     <Row>
                         <Card className="project-card">
                             <Card.Body>
                                 <Card.Link href="https://serene-wildwood-3210.herokuapp.com/"><Card.Img variant="top" src={WorldTravelimg} /></Card.Link>
 
                             </Card.Body>
-                            <Card.Footer>
-                                <Card.Link className="link" href="https://serene-wildwood-3210.herokuapp.com/">World Travel Gallery</Card.Link>
-                            </Card.Footer>
+                           
                         </Card>
                         <Card className="project-detail">
                             <ListGroup variant="flush">
@@ -106,16 +105,14 @@ const Projects = () => {
                             </ListGroup>
                         </Card>
                     </Row>
+                    <Card.Header>
+                                <Card.Link className="link" href="https://frontendstudygroup.github.io/">Frontend-Studygroup</Card.Link>
+                    </Card.Header>
                     <Row>
-
                         <Card className="project-card">
                             <Card.Body>
                                 <Card.Link href="https://frontendstudygroup.github.io/"><Card.Img variant="top" src={Frontendstudygroupimg} /></Card.Link>
-
-                            </Card.Body>
-                            <Card.Footer>
-                                <Card.Link className="link" href="https://frontendstudygroup.github.io/">Frontend-Studygroup</Card.Link>
-                            </Card.Footer>
+                            </Card.Body>    
                         </Card>
                         <Card className="project-detail">
                             <ListGroup variant="flush">
@@ -128,7 +125,7 @@ const Projects = () => {
                     </Row>
                     <Row>
                         <Col>
-                             <Foliofoot></Foliofoot>
+                            <Foliofoot></Foliofoot>
                         </Col>
                     </Row>
                 </Container>

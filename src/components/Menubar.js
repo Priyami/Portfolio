@@ -5,7 +5,7 @@ import './Menubar.css';
 export default class Menubar extends Component {
     render() {
         return (
-            <div>
+            <div className="menu-bar">
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="/">Portfolio</Navbar.Brand>
                     <Nav className="mr-auto">

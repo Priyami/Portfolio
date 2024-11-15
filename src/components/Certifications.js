@@ -4,6 +4,8 @@ import { Row, Col, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
 import StartupEngCertificate from '../images/certi/Startup_Engineering.png';
 import ReactCertificate from '../images/certi/React Course Complete.png';
+import AICertificate from '../images/certi/AI-Python.png';
+
 
 import "./Certifications.css";
 const Certifications = () => {
@@ -20,6 +22,16 @@ const Certifications = () => {
 
                     <br />
                     <Row>
+                        <Col>
+                            <Card className='certi-card'>
+                                <Card.Body>
+                                  <Card.Img variant="top" src={AICertificate} />
+                                </Card.Body>
+                                <Card.Footer>
+                                    <small className="text-muted">AI-Python - Udemy Course </small>
+                                </Card.Footer>
+                            </Card>
+                        </Col>
                         <Col md={4}>
                             <Card className='certi-card'>
                                 <Card.Body>
@@ -42,6 +54,7 @@ const Certifications = () => {
                                 </Card.Footer>
                             </Card>
                         </Col>
+                        
                     </Row>
                 </Container>
             </React.Fragment>

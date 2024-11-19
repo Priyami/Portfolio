@@ -2,9 +2,9 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Row, Col, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
-import ResumePage1 from '../images/resume/PriyaRSurendranath_Resume-1.jpg';
-import ResumePage2 from '../images/resume/PriyaRSurendranath_Resume-2.jpg';
-import ResumePage3 from '../images/resume/PriyaRSurendranath_Resume-3.jpg';
+import ResumePage1 from '../images/resume/PriyaRSurendranath_Resume_1.jpg';
+import ResumePage2 from '../images/resume/PriyaRSurendranath_Resume_2.jpg';
+import ResumePage3 from '../images/resume/PriyaRSurendranath_Resume_3.jpg';
 
 
 import "./Resume.css";

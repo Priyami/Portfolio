@@ -4,7 +4,6 @@ import { Row, Col, Container } from 'reactstrap';
 import Menubar from '../components/Menubar';
 import ResumePage1 from '../images/resume/PriyaRSurendranath_Resume_1.jpg';
 import ResumePage2 from '../images/resume/PriyaRSurendranath_Resume_2.jpg';
-import ResumePage3 from '../images/resume/PriyaRSurendranath_Resume_3.jpg';
 
 
 import "./Resume.css";
@@ -37,17 +36,6 @@ const Resume = () => {
                                 <Card.Header></Card.Header>
                                 <Card.Body>
                                     <Card.Img variant="top" src={ResumePage2} />
-                                </Card.Body>
-                                <Card.Footer></Card.Footer>
-                            </Card>
-                        
-                    </Row>
-
-                    <Row>
-                            <Card className='resume-card'>
-                                <Card.Header></Card.Header>
-                                <Card.Body>
-                                    <Card.Img variant="top" src={ResumePage3} />
                                 </Card.Body>
                                 <Card.Footer></Card.Footer>
                             </Card>
